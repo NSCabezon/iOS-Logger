@@ -144,12 +144,12 @@ public class Logger {
         switch style {
         case .short:
             string = "\(level) \(namePrefix)\(message)"
-
-        case .medium:
-            let stringDate      = "\(mFormatter.string(from: date))"
-            let stringLocation  = "[\((file as NSString).lastPathComponent):L\(line)]"
-
-            string = "\(stringDate) ◉ \(level) \(namePrefix)\(message) \(stringLocation)"
+		
+		case .medium:
+			let stringDate      = "\(mFormatter.string(from: date))"
+			let stringLocation  = "[\((file as NSString).lastPathComponent.replacingOccurrences(of: "swift", with: "")):L\(line)]"
+			
+			string = "\(stringDate) ◉ \(level) \(stringLocation) \(namePrefix) \(message)"
 
         case .long:
             let stringDate         = "\(lFormatter.string(from: date))"
