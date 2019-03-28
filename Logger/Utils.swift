@@ -25,9 +25,8 @@ func &=(left: inout Bool, right: Bool) {
 }
 
 public extension DateFormatter {
-    public convenience init(dateFormat: String) {
+    convenience init(dateFormat: String) {
         self.init()
         self.dateFormat = dateFormat
-        
     }
 }
